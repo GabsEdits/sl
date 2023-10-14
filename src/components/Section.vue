@@ -137,15 +137,15 @@ export default {
   },
   computed: {
     getLink1Url() {
-      return this.unlocked ? import.meta.env.VITE_LINK1 : null;
+      return this.unlocked ? process.env.VITE_LINK1 : null;
     },
     getLink2Url() {
-      return this.unlocked ? import.meta.env.VITE_LINK2 : null;
+      return this.unlocked ? process.env.VITE_LINK2 : null;
     },
   },
   methods: {
     checkPassword() {
-      if (this.password === import.meta.env.VITE_PASSWORD_KEY) {
+      if (this.password === process.env.VITE_PASSWORD_KEY) {
         this.unlocked = true;
         console.log('Password is correct. Unlocked:', this.unlocked);
       } else {
