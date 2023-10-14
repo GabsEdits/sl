@@ -44,9 +44,9 @@ jobs:
           echo "VITE_LINK1=$LINK1" > .env.temp
           echo "VITE_LINK2=$LINK2" > .env.temp
         env:
-          PASSWORD_KEY: ${{ vars.VITE_PASSWORD_KEY }}
-          LINK1: ${{ vars.VITE_LINK1 }}
-          LINK2: ${{ vars.VITE_LINK2 }}
+          PASSWORD_KEY: ${{ secrets.VITE_PASSWORD_KEY }}
+          LINK1: ${{ secrets.VITE_LINK1 }}
+          LINK2: ${{ secrets.VITE_LINK2 }}
 
       - name: Install dependencies
         run: npm install
