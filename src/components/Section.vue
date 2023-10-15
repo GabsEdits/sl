@@ -4,21 +4,25 @@
     <section id="links">
       <div class="grid-container">
         <a class="card" :class="{ locked: !unlocked }" :href="getLink1Url">
-        <div class="head" id="first-head" style="background-color: #ff5151;">
+        <div class="head" id="first-head" style="background-color: rgba(255, 71, 71, 0.838);">
         <h3>L. ROMÂNĂ</h3>
         </div>
         <p class="subject">CP - Casă</p>
         <p class="date">13/10/2023</p>
       </a>
       <a class="card" :class="{ locked: !unlocked }" :href="getLink2Url">
-        <div class="head" style="background-color: #968b2f;">
+        <div class="head" style="background-color: rgba(255, 238, 80, 0.538);">
         <h3>L. ROMÂNĂ</h3>
         </div>
         <p class="subject">Ion Druță</p>
         <p class="date">06/10/2023</p>
       </a>
-      <a class="card">
-
+      <a class="card" :class="{ locked: !unlocked }" :href="getLink3Url">
+        <div class="head" style="background-color: rgba(255, 175, 71, 0.838);">
+        <h3>BIO</h3>
+        </div>
+        <p class="subject">GP - Albina</p>
+        <p class="date">16/10/2023</p>
       </a>
       <a class="card">
 
@@ -123,6 +127,7 @@ text-align: center;
   border: 1px #fff;
   background-color: var(--color-background);
   color: var(--color-text);
+  transition: color 300ms;
 }
 </style>
 
@@ -142,16 +147,33 @@ export default {
     getLink2Url() {
       return this.unlocked ? import.meta.env.VITE_LINK2 : null;
     },
+    getLink3Url() {
+      return this.unlocked ? import.meta.env.VITE_LINK3 : null;
+    },
   },
   methods: {
     checkPassword() {
-      if (this.password === import.meta.env.VITE_PASSWORD_KEY) {
-        this.unlocked = true;
-        console.log('Password is correct. Unlocked:', this.unlocked);
-      } else {
-        console.log('Incorrect password.');
-      }
-    },
+  if (this.password === import.meta.env.VITE_PASSWORD_KEY) {
+    this.unlocked = true;
+    console.log('Password is correct. Unlocked:', this.unlocked);
+    const passwordInput = document.querySelector(".password-input");
+    if (passwordInput) {
+      passwordInput.style.color = "hsla(160, 100%, 37%, 1)";
+    }
+  } else {
+    console.log('Incorrect password.');
+    const passwordInput = document.querySelector(".password-input");
+    if (passwordInput) {
+      passwordInput.style.color = "rgba(255, 71, 71, 0.838)";
+    }
+  }
+  setTimeout(() => {
+    const passwordInput = document.querySelector(".password-input");
+    if (passwordInput) {
+      passwordInput.style.color = "";
+    }
+  }, 2000);
+},
     togglePasswordInput() {
       this.showPasswordInput = !this.showPasswordInput;
     },
