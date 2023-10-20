@@ -42,7 +42,10 @@
   padding: 40px;
   background-color: var(--color-background-section);
   border-radius: 23px;
-  box-shadow: 0px 4px 56px 0px rgba(0, 0, 0, 0.25); 
+  box-shadow: var(--base-shadow); 
+  animation: fadeInAnimation ease 1.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 #page h1 {
