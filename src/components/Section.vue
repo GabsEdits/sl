@@ -4,28 +4,32 @@
     <section id="links">
       <div class="grid-container">
         <a class="card" :class="{ locked: !unlocked }" :href="getLink1Url">
-        <div class="head" style="background-color: rgba(255, 141, 71, 0.838);" id="first-head">
+        <div class="head" style="background-color: rgba(255, 123, 71, 0.838);" id="first-head">
+        <h3>ISTORIE</h3>
+        </div>
+        <p class="subject" style="font-size: 14px;">D. Cantemir, C. Brancoveanu</p>
+        <p class="date">08/11/2023</p>
+      </a>
+        <a class="card" :class="{ locked: !unlocked }" :href="getLink2Url">
+        <div class="head" style="background-color: rgba(255, 181, 71, 0.838);">
         <h3>ISTORIE</h3>
         </div>
         <p class="subject">Napoleon Bonaparte</p>
         <p class="date">16/10/2023</p>
       </a>
-        <a class="card" :class="{ locked: !unlocked }" :href="getLink2Url">
+        <a class="card" :class="{ locked: !unlocked }" :href="getLink3Url">
         <div class="head" style="background-color: rgba(255, 71, 71, 0.838);">
         <h3>L. ROMÂNĂ</h3>
         </div>
-        <p class="subject">CP - Casă & Pic</p>
+        <p class="subject">CP - Casă, Pic & Info</p>
         <p class="date">13/10/2023</p>
       </a>
-      <a class="card" :class="{ locked: !unlocked }" :href="getLink3Url">
-        <div class="head" style="background-color: rgba(145, 255, 0, 0.406);">
+      <a class="card" :class="{ locked: !unlocked }" :href="getLink4Url">
+        <div class="head" style="background-color: rgba(145, 255, 0, 0.406);" id="last-head">
         <h3>L. ROMÂNĂ</h3>
         </div>
         <p class="subject">Ion Druță</p>
         <p class="date">06/10/2023</p>
-      </a>
-      <a class="card">
-
       </a>
       </div>
       </section>
@@ -152,6 +156,9 @@ export default {
     },
     getLink3Url() {
       return this.unlocked ? import.meta.env.VITE_LINK3 : null;
+    },
+    getLink4Url() {
+      return this.unlocked ? import.meta.env.VITE_LINK4 : null;
     },
   },
   methods: {
