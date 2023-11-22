@@ -4,32 +4,32 @@
     <section id="links">
       <div class="grid-container">
         <a class="card" :class="{ locked: !unlocked }" :href="getLink1Url">
-        <div class="head" style="background-color: rgba(255, 123, 71, 0.838);" id="first-head">
+        <div class="head" style="background-color: rgba(86, 255, 71, 0.484);" id="first-head">
         <h3>ISTORIE</h3>
         </div>
-        <p class="subject" style="font-size: 14px;">D. Cantemir, C. Brancoveanu</p>
-        <p class="date">08/11/2023</p>
+        <p class="subject">Constantin Mavrocordat</p>
+        <p class="date">22/11/2023</p>
       </a>
         <a class="card" :class="{ locked: !unlocked }" :href="getLink2Url">
+        <div class="head" style="background-color: rgba(255, 123, 71, 0.838);">
+        <h3>ISTORIE</h3>
+        </div>
+        <p class="subject" style="font-size: 13px;">D. Cantemir, C. Brancoveanu</p>
+        <p class="date">08/11/2023</p>
+      </a>
+        <a class="card" :class="{ locked: !unlocked }" :href="getLink3Url">
         <div class="head" style="background-color: rgba(255, 181, 71, 0.838);">
         <h3>ISTORIE</h3>
         </div>
         <p class="subject">Napoleon Bonaparte</p>
         <p class="date">16/10/2023</p>
       </a>
-        <a class="card" :class="{ locked: !unlocked }" :href="getLink3Url">
-        <div class="head" style="background-color: rgba(255, 71, 71, 0.838);">
-        <h3>L. ROMÂNĂ</h3>
-        </div>
-        <p class="subject">CP - Casă, Pic & Info</p>
-        <p class="date">13/10/2023</p>
-      </a>
       <a class="card" :class="{ locked: !unlocked }" :href="getLink4Url">
-        <div class="head" style="background-color: rgba(145, 255, 0, 0.406);" id="last-head">
-        <h3>L. ROMÂNĂ</h3>
+        <div class="head" style="background-color: rgba(145, 255, 0, 0);" id="last-head">
+        <h3></h3>
         </div>
-        <p class="subject">Ion Druță</p>
-        <p class="date">06/10/2023</p>
+        <p class="subject"></p>
+        <p class="date"></p>
       </a>
       </div>
       </section>
@@ -46,7 +46,6 @@
   padding: 40px;
   background-color: var(--color-background-section);
   border-radius: 23px;
-  box-shadow: var(--base-shadow); 
   animation: fadeInAnimation ease 1.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -58,6 +57,7 @@
 }
   
 #page #copyright {
+  font-weight: 500;
   text-align: right;
   margin-top: 10%;
   color: var(--color-text-dim);
