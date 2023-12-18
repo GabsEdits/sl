@@ -45,6 +45,7 @@
   height: 500px;
   padding: 40px;
   background-color: var(--color-background-section);
+  box-shadow: var(--base-shadow);
   border-radius: 23px;
   animation: fadeInAnimation ease 1.5s;
   animation-iteration-count: 1;
@@ -101,7 +102,7 @@
 
 .card .date {
   color: var(--color-text);
-  font-family: "Roboto Mono", monospace;
+  font-family: "Source Code Pro", monospace;
   font-size: 13px;
 }
 
