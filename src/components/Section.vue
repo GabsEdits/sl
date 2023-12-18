@@ -4,32 +4,32 @@
     <section id="links">
       <div class="grid-container">
         <a class="card" :class="{ locked: !unlocked }" :href="getLink1Url">
-        <div class="head" style="background-color: rgba(0, 89, 255, 0.269);" id="first-head">
+        <div class="head" style="background-color: rgba(255, 247, 0, 0.484);" id="first-head">
+        <h3>ISTORIE</h3>
+        </div>
+        <p class="subject">Revoluția Industrială</p>
+        <p class="date">18/12/2023</p>
+      </a>
+        <a class="card" :class="{ locked: !unlocked }" :href="getLink2Url">
+        <div class="head" style="background-color: rgba(0, 89, 255, 0.269)">
         <h3>CHIMIE</h3>
         </div>
         <p class="subject">Arborele chimic</p>
         <p class="date">29/11/2023</p>
       </a>
-        <a class="card" :class="{ locked: !unlocked }" :href="getLink2Url">
+        <a class="card" :class="{ locked: !unlocked }" :href="getLink3Url">
         <div class="head" style="background-color: rgba(86, 255, 71, 0.484);">
         <h3>ISTORIE</h3>
         </div>
         <p class="subject">Constantin Mavrocordat</p>
         <p class="date">22/11/2023</p>
       </a>
-        <a class="card" :class="{ locked: !unlocked }" :href="getLink3Url">
-        <div class="head" style="background-color: rgba(255, 123, 71, 0.838);">
+        <a class="card" :class="{ locked: !unlocked }" :href="getLink4Url">
+        <div class="head" style="background-color: rgba(255, 123, 71, 0.838);" id="last-head">
         <h3>ISTORIE</h3>
         </div>
         <p class="subject" style="font-size: 13px;">D. Cantemir, C. Brancoveanu</p>
         <p class="date">08/11/2023</p>
-      </a>
-        <a class="card" :class="{ locked: !unlocked }" :href="getLink4Url">
-        <div class="head" style="background-color: rgba(255, 181, 71, 0.838);" id="last-head">
-        <h3>ISTORIE</h3>
-        </div>
-        <p class="subject">Napoleon Bonaparte</p>
-        <p class="date">16/10/2023</p>
       </a>
       </div>
       </section>
@@ -101,7 +101,8 @@
 
 .card .date {
   color: var(--color-text);
-  font-family: monospace;
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
 }
 
 .card .subject {
