@@ -33,6 +33,7 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Load environment variables
         run: |
+            echo "VITE_PASSWORD_KEY=${{ secrets.VITE_PASSWORD_KEY }}" >> $GITHUB_ENV
             echo "VITE_LINK1=${{ secrets.VITE_LINK1 }}" >> $GITHUB_ENV
             echo "VITE_LINK2=${{ secrets.VITE_LINK2 }}" >> $GITHUB_ENV
             echo "VITE_LINK3=${{ secrets.VITE_LINK3 }}" >> $GITHUB_ENV
