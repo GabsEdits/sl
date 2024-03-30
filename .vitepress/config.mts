@@ -8,7 +8,7 @@ export default defineConfig({
   base: "/sl/",
 
   head: [
-    ["link", { rel: "icon", href: "/icon.svg" }],
+    ["link", { rel: "icon", href: "icon.svg" }],
     ["meta", { name: "author", content: "Gabriel Cozma" }],
     ["link", { rel: "preconnect", href: "https://rsms.me/"}],
     ["link", { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" }],
