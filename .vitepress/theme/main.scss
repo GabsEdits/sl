@@ -73,7 +73,7 @@ a,
   background-color: var(--color-background-soft);
   padding: 20px;
   text-align: center;
-  height: 200px;
+  height: max-content;
   transition: background-color 300ms;
 
   &:hover {
@@ -111,7 +111,7 @@ a,
   }
 
   .subject {
-    margin-top: 50%;
+    margin-top: 40%;
     font-weight: 800;
   }
 

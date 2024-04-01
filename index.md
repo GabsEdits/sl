@@ -1,7 +1,11 @@
 ---
 cards:
+  - subject: ISTORIE
+    details: Viața Cotidiană
+    date: 02/04/2024
+    color: "rgba(138, 255, 0, 0.42);"
   - subject: GERMANĂ
-    details: Meine Sloolch
+    details: Deutsch
     date: 29/01/2024
     color: "rgba(255, 0, 0, 0.484);"
   - subject: ISTORIE
@@ -12,8 +16,4 @@ cards:
     details: Revoluția Industrială
     date: 18/12/2023
     color: "rgba(255, 247, 0, 0.484)"
-  - subject: CHIMIE
-    details: Arborele chimic
-    date: 29/11/2023
-    color: "rgba(0, 89, 255, 0.269)"
 ---
