@@ -1,0 +1,11 @@
+version: 2
+
+updates:
+  - package-ecosystem: gitsubmodule
+    schedule:
+        interval: "weekly"
+    directory: /
+  - package-ecosystem: npm
+    schedule:
+        interval: "weekly"
+    directory: /
