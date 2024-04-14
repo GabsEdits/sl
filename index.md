@@ -1,5 +1,9 @@
 ---
 cards:
+  - subject: CHIMIE
+    details: Poluarea Apei
+    date: 15/04/2024
+    color: "rgba(91, 153, 255, 0.54)"
   - subject: INFORMATICĂ
     details: Cetatea Tighina
     date: 27/03/2024
@@ -12,8 +16,4 @@ cards:
     details: Lampa cu incandescență
     date: 15/01/2024
     color: "rgba(255, 102, 0, 0.484)"
-  - subject: ISTORIE
-    details: Revoluția Industrială
-    date: 18/12/2023
-    color: "rgba(255, 247, 0, 0.484)"
 ---
