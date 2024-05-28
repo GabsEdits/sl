@@ -64,7 +64,10 @@ const { frontmatter, theme } = useData();
         </template>
       </div>
     </section>
-    <p id="copyright">&copy; 2024 {{ theme.author }}. All rights reserved.</p>
+    <p id="copyright">
+      &copy; {{ new Date().getFullYear() }} {{ theme.author }}. All rights
+      reserved.
+    </p>
   </section>
   <input
     v-model="password"
