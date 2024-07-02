@@ -18,19 +18,19 @@ const checkPassword = () => {
   if (password.value === import.meta.env.VITE_PASSWORD_KEY) {
     unlocked.value = true;
     console.log("Password is correct. Unlocked:", unlocked.value);
-    const passwordInput = document.querySelector(".password-input");
+    const passwordInput = document.querySelector("input[type='password']");
     if (passwordInput) {
       passwordInput.style.color = "hsla(160, 100%, 37%, 1)";
     }
   } else {
     console.log("Incorrect password.");
-    const passwordInput = document.querySelector(".password-input");
+    const passwordInput = document.querySelector("input[type='password']");
     if (passwordInput) {
       passwordInput.style.color = "rgba(255, 71, 71, 0.838)";
     }
   }
   setTimeout(() => {
-    const passwordInput = document.querySelector(".password-input");
+    const passwordInput = document.querySelector("input[type='password']");
     if (passwordInput) {
       passwordInput.style.color = "";
     }
@@ -48,7 +48,7 @@ const { frontmatter, theme } = useData();
   <section id="page">
     <h1>School Links</h1>
     <section id="links">
-      <div class="grid-container">
+      <div id="cards">
         <template v-for="(card, index) in frontmatter.cards" :key="index">
           <a
             class="card"
@@ -58,14 +58,16 @@ const { frontmatter, theme } = useData();
             <div class="head" :style="'background-color:' + card.color">
               <h3>{{ card.subject }}</h3>
             </div>
+            <div class="foot">
             <p class="subject">{{ card.details }}</p>
             <p class="date">{{ card.date }}</p>
+            </div>
           </a>
         </template>
       </div>
     </section>
     <p id="copyright">
-      &copy; {{ new Date().getFullYear() }} {{ theme.author }}. All rights
+      &copy; {{ new Date().getFullYear() }} <a :href="theme.author.link">{{ theme.author.name }}</a>. All rights
       reserved.
     </p>
   </section>
@@ -73,7 +75,6 @@ const { frontmatter, theme } = useData();
     v-model="password"
     type="password"
     placeholder="Enter password"
-    class="password-input"
     @keyup.enter="checkPassword"
   />
 </template>

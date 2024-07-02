@@ -2,136 +2,119 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap");
 
 #app {
-  margin: 0 auto;
-
+  width: max-content;
   font-weight: normal;
 }
 
 a,
 .green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    padding: 0 2rem;
-  }
+  color: hsla(160, 100%, 37%, 1);
+  text-decoration: none;
 }
 
 #page {
-  margin: 0 auto;
-  width: max-content;
-  height: max-content;
-  padding: 40px;
-  background-color: var(--color-background-section);
-  box-shadow: var(--base-shadow);
-  border-radius: 23px;
   animation: fadeInAnimation ease 1.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  box-shadow: var(--base-shadow);
+  border-radius: 1.3rem;
+  background-color: var(--color-background-section);
+  padding: 2.5rem;
+  width: 100%;
+  height: max-content;
 
   h1 {
+    margin-bottom: 1.5rem;
     font-weight: 900;
-    font-size: 28px;
+    font-size: 1.75rem;
+  }
+
+  #cards {
+    grid-gap: 0.125rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-radius: 1.25rem;
+
+    .card {
+      display: grid;
+      transition: background-color 300ms;
+      background-color: var(--color-background-soft);
+      height: max-content;
+      text-align: center;
+
+      &:hover {
+        background-color: var(--color-background-mute);
+      }
+
+      &:first-child {
+        border-top-left-radius: 0.9375rem;
+        border-bottom-left-radius: 0.9375rem;
+
+        .head {
+          border-top-left-radius: 0.9375rem;
+        }
+      }
+
+      &:last-child {
+        border-top-right-radius: 0.9375rem;
+        border-bottom-right-radius: 0.9375rem;
+
+        .head {
+          border-top-right-radius: 0.9375rem;
+        }
+      }
+
+      .subject {
+        font-weight: 800;
+      }
+
+      .date {
+        color: var(--color-text);
+        font-size: 13px;
+        font-family: "Source Code Pro", monospace;
+      }
+
+      .head {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.25rem;
+
+        h3 {
+          color: var(--color-text);
+          font-weight: 900;
+          font-size: 25px;
+        }
+      }
+
+      .foot {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: transparent;
+        padding: 2rem 1.25rem 1rem 1.25rem;
+        text-align: center;
+      }
+    }
   }
 
   #copyright {
-    font-weight: 500;
-    text-align: right;
+    position: relative;
     margin-top: 5%;
     color: var(--color-text-dim);
-    position: relative;
+    font-weight: 500;
+    text-align: right;
   }
 }
 
-#links {
-  margin-top: 2rem;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2px;
-  border-radius: 20px;
-}
-
-.card {
-  background-color: var(--color-background-soft);
-  padding: 20px;
-  text-align: center;
-  height: 185.333px;
-  transition: background-color 300ms;
-
-  &:hover {
-    background-color: var(--color-background-mute);
-  }
-
-  &:first-child {
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-
-    .head {
-      border-top-left-radius: 15px;
-    }
-  }
-
-  &:last-child {
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-
-    .head {
-      border-top-right-radius: 15px;
-    }
-  }
-
-  h3 {
-    font-weight: 900;
-    font-size: 25px;
-    color: var(--color-text);
-  }
-
-  .date {
-    color: var(--color-text);
-    font-family: "Source Code Pro", monospace;
-    font-size: 13px;
-  }
-
-  .subject {
-    margin-top: 40%;
-    font-weight: 800;
-  }
-
-  > .head {
-    text-align: center;
-    height: 70px;
-    text-align: center;
-    margin: -20px;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-.password-input {
+input[type="password"] {
   position: absolute;
-  bottom: 0;
   right: 0;
-  padding: 5px;
-  border: 1px #fff;
-  background-color: var(--color-background);
-  color: var(--color-text);
+  bottom: 0;
   transition: color 300ms;
+  border: 0.0625rem #fff;
+  background-color: var(--color-background);
+  padding: 0.3125rem;
+  color: var(--color-text);
 }

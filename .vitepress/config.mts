@@ -15,6 +15,9 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    author: "Gabriel Cozma/Gabs",
+    author: {
+      name: "Gabriel Cozma",
+      link: "https://www.gxbs.me/",
+    },
   },
 })
