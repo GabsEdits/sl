@@ -146,7 +146,7 @@ a,
 
       .date {
         color: var(--color-text);
-        font-size: 13px;
+        font-size: 0.8125rem;
         font-family: "Source Code Pro", monospace;
       }
 
@@ -159,7 +159,7 @@ a,
         h3 {
           color: var(--color-text);
           font-weight: 900;
-          font-size: 25px;
+          font-size: 1.5625rem;
         }
       }
 
@@ -168,7 +168,7 @@ a,
         flex-direction: column;
         justify-content: center;
         background-color: transparent;
-        padding: 2rem 1.25rem 1rem 1.25rem;
+        padding: 2.5rem 1.25rem 1rem 1.25rem;
         text-align: center;
       }
     }

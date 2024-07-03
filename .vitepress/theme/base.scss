@@ -23,8 +23,8 @@
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 
-  --aeo-shadow-1: 0 18px 56px rgba(0, 0, 0, 0.14),
-    0 4px 12px rgba(0, 0, 0, 0.077);
+  --main-shadow: 0 1.125rem 3.5rem rgba(0, 0, 0, 0.14),
+    0 0.25rem 0.75rem rgba(0, 0, 0, 0.077);
 
   /* semantic color variables for this project */
 
@@ -32,7 +32,7 @@
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
   --color-background-section: var(--vt-c-white);
-  --base-shadow: var(--aeo-shadow-1);
+  --base-shadow: var(--main-shadow);
 
   --color-border: var(--vt-c-divider-light-2);
   --color-border-hover: var(--vt-c-divider-light-1);
@@ -40,8 +40,6 @@
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
   --color-text-dim: var(--vt-c-divider-dark-1);
-
-  --section-gap: 160px;
 
   @media (prefers-color-scheme: dark) {
     --color-background: var(--vt-c-black);
@@ -59,9 +57,9 @@
 
   font-family: Inter, sans-serif;
 
-@supports (font-variation-settings: normal) {
+  @supports (font-variation-settings: normal) {
     font-family: InterVariable, sans-serif;
-}
+  }
 }
 
 *,
@@ -105,4 +103,3 @@ body {
   width: max-content;
   font-weight: normal;
 }
-

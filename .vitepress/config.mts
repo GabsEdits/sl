@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -10,7 +10,7 @@ export default defineConfig({
   head: [
     ["link", { rel: "icon", href: "icon.svg" }],
     ["meta", { name: "author", content: "Gabriel Cozma" }],
-    ["link", { rel: "preconnect", href: "https://rsms.me/"}],
+    ["link", { rel: "preconnect", href: "https://rsms.me/" }],
     ["link", { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" }],
   ],
 
@@ -20,4 +20,4 @@ export default defineConfig({
       link: "https://www.gxbs.me/",
     },
   },
-})
+});
