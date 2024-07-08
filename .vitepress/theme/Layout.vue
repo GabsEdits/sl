@@ -8,29 +8,28 @@ const showPasswordInput = ref(false);
 
 const getLinkUrl = (index: number) => {
   if (unlocked.value) {
-    const link = import.meta.env[`VITE_LINK${index + 1}`];
+    const link = (import.meta as any).env[`VITE_LINK${index + 1}`];
     return link ? link : null;
   }
   return null;
 };
 
 const checkPassword = () => {
-  if (password.value === import.meta.env.VITE_PASSWORD_KEY) {
+  const passwordInput = document.querySelector("input[type='password']") as HTMLInputElement;
+
+  if (password.value === (import.meta as any).env.VITE_PASSWORD_KEY) {
     unlocked.value = true;
     console.log("Password is correct. Unlocked:", unlocked.value);
-    const passwordInput = document.querySelector("input[type='password']");
     if (passwordInput) {
       passwordInput.style.color = "hsla(160, 100%, 37%, 1)";
     }
   } else {
     console.log("Incorrect password.");
-    const passwordInput = document.querySelector("input[type='password']");
     if (passwordInput) {
       passwordInput.style.color = "rgba(255, 71, 71, 0.838)";
     }
   }
   setTimeout(() => {
-    const passwordInput = document.querySelector("input[type='password']");
     if (passwordInput) {
       passwordInput.style.color = "";
     }
@@ -41,12 +40,12 @@ const togglePasswordInput = () => {
   showPasswordInput.value = !showPasswordInput.value;
 };
 
-const { frontmatter, theme } = useData();
+const { frontmatter, theme, site } = useData();
 </script>
 
 <template>
   <section id="page">
-    <h1>School Links</h1>
+    <h1>{{ site.title }}</h1>
     <section id="links">
       <div id="cards">
         <template v-for="(card, index) in frontmatter.cards" :key="index">
@@ -109,7 +108,6 @@ a,
     grid-gap: 0.125rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    border-radius: 1.25rem;
 
     .card {
       display: grid;
@@ -183,8 +181,8 @@ a,
 
     a {
       color: var(--color-text-dim);
-      text-decoration: underline;
       font-weight: bolder;
+      text-decoration: underline;
 
       &:hover {
         color: var(--color-text);
@@ -203,5 +201,6 @@ input[type="password"] {
   background-color: var(--color-background);
   padding: 0.3125rem;
   color: var(--color-text);
+  font-family: "Inter", sans-serif;
 }
 </style>
