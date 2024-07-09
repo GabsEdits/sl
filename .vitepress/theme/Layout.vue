@@ -1,10 +1,20 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 const password = ref("");
 const unlocked = ref(false);
+const showPopup = ref(false);
 const showPasswordInput = ref(false);
+
+const togglePasswordPopup = () => {
+  showPopup.value = !showPopup.value;
+  if (unlocked.value === true) {
+    showPopup.value = false;
+    unlocked.value = false;
+    password.value = "";
+  }
+};
 
 const getLinkUrl = (index: number) => {
   if (unlocked.value) {
@@ -15,16 +25,25 @@ const getLinkUrl = (index: number) => {
 };
 
 const checkPassword = () => {
-  const passwordInput = document.querySelector("input[type='password']") as HTMLInputElement;
+  const passwordInput = document.querySelector(
+    "input[type='password']"
+  ) as HTMLInputElement;
+
+  const lock = document.querySelector("#lock") as HTMLButtonElement;
 
   if (password.value === (import.meta as any).env.VITE_PASSWORD_KEY) {
     unlocked.value = true;
+    setTimeout(() => {
+      showPopup.value = false;
+    }, 1200);
     console.log("Password is correct. Unlocked:", unlocked.value);
     if (passwordInput) {
       passwordInput.style.color = "hsla(160, 100%, 37%, 1)";
+      lock.style.filter =
+        "invert(75%) sepia(100%) saturate(300%) hue-rotate(90deg) brightness(100%) contrast(100%)";
     }
   } else {
-    console.log("Incorrect password.");
+    console.log("Incorrect password. Unlocked:", unlocked.value);
     if (passwordInput) {
       passwordInput.style.color = "rgba(255, 71, 71, 0.838)";
     }
@@ -32,12 +51,27 @@ const checkPassword = () => {
   setTimeout(() => {
     if (passwordInput) {
       passwordInput.style.color = "";
+      lock.style.filter = "";
     }
   }, 2000);
 };
 
 const togglePasswordInput = () => {
   showPasswordInput.value = !showPasswordInput.value;
+};
+
+onMounted(() => {
+  document.addEventListener("keydown", handleEscKey);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("keydown", handleEscKey);
+});
+
+const handleEscKey = (e: KeyboardEvent) => {
+  if (e.key === "Escape") {
+    showPopup.value = false;
+  }
 };
 
 const { frontmatter, theme, site } = useData();
@@ -71,12 +105,31 @@ const { frontmatter, theme, site } = useData();
       >. All rights reserved.
     </p>
   </section>
-  <input
-    v-model="password"
-    type="password"
-    placeholder="Enter password"
-    @keyup.enter="checkPassword"
-  />
+  <button @click="togglePasswordPopup" id="lock">
+    <img src="./assets/unlocked.svg" v-if="unlocked" />
+    <img src="./assets/lock.svg" v-else />
+  </button>
+
+  <template v-if="showPopup">
+    <div id="popup">
+      <div id="overlay">
+        <div id="content">
+          <a @click="togglePasswordPopup">×</a>
+          <h2>Password</h2>
+          <p>
+            To verify that you are authorized to access these links, please
+            enter the password.
+          </p>
+          <input
+            v-model="password"
+            type="password"
+            placeholder="Enter password"
+            @keyup.enter="checkPassword"
+          />
+        </div>
+      </div>
+    </div>
+  </template>
 </template>
 
 <style lang="scss">
@@ -192,15 +245,93 @@ a,
   }
 }
 
-input[type="password"] {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  transition: color 300ms;
-  border: 0.0625rem #fff;
+#lock {
+  display: flex;
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 300ms, filter 300ms;
+  cursor: pointer;
+  box-shadow: var(--base-shadow);
+  border: 0;
+  border-radius: 0.625rem;
   background-color: var(--color-background);
-  padding: 0.3125rem;
+  padding: 0.6rem;
   color: var(--color-text);
-  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: var(--color-background-mute);
+  }
+}
+
+#popup {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+
+  #overlay {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(0.625rem);
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+  }
+
+  #content {
+    position: relative;
+    box-shadow: var(--base-shadow);
+    border-radius: 0.625rem;
+    background-color: var(--color-background);
+    padding: 1.8rem;
+    width: 30%;
+    height: max-content;
+
+    h2 {
+      margin-bottom: 0.2rem;
+      font-weight: 900;
+      font-size: 1.7rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    a {
+      position: absolute;
+      top: 0rem;
+      right: 1rem;
+      cursor: pointer;
+      padding: 0.625rem;
+      color: var(--color-text);
+      font-size: 1.5rem;
+    }
+
+    input[type="password"] {
+      transition: color 300ms;
+      border: 0;
+      border-radius: 0.625rem;
+      background-color: var(--color-background-mute);
+      padding: 1rem;
+      width: 100%;
+      color: var(--color-text);
+      font-size: 1rem;
+      font-family: "Inter", sans-serif;
+    }
+  }
 }
 </style>
