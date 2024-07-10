@@ -99,9 +99,11 @@ const { frontmatter, theme, site } = useData();
         </template>
       </div>
     </section>
-    <p id="copyright">
+    <p id="copyright" v-if="theme?.copyright !== false || theme.author">
       &copy; {{ new Date().getFullYear() }}
-      <a :href="theme.author.link">{{ theme.author.name }}</a
+      <a v-if="theme.author" :href="theme.author.link">{{
+        theme.author.name
+      }}</a
       >. All rights reserved.
     </p>
   </section>
@@ -110,26 +112,28 @@ const { frontmatter, theme, site } = useData();
     <img src="./assets/lock.svg" v-else />
   </button>
 
-  <template v-if="showPopup">
-    <div id="popup">
-      <div id="overlay">
-        <div id="content">
-          <a @click="togglePasswordPopup">×</a>
-          <h2>Password</h2>
-          <p>
-            To verify that you are authorized to access these links, please
-            enter the password.
-          </p>
-          <input
-            v-model="password"
-            type="password"
-            placeholder="Enter password"
-            @keyup.enter="checkPassword"
-          />
+  <Transition>
+    <template v-if="showPopup">
+      <div id="popup">
+        <div id="overlay">
+          <div id="content">
+            <a @click="togglePasswordPopup">×</a>
+            <h2>Password</h2>
+            <p>
+              To verify that you are authorized to access these links, please
+              enter the password.
+            </p>
+            <input
+              v-model="password"
+              type="password"
+              placeholder="Enter password"
+              @keyup.enter="checkPassword"
+            />
+          </div>
         </div>
       </div>
-    </div>
-  </template>
+    </template>
+  </Transition>
 </template>
 
 <style lang="scss">
@@ -166,6 +170,8 @@ a,
       display: grid;
       transition: background-color 300ms;
       background-color: var(--color-background-soft);
+      width: max-content;
+      min-width: 12rem;
       height: max-content;
       text-align: center;
 
@@ -252,7 +258,7 @@ a,
   bottom: 1.25rem;
   justify-content: center;
   align-items: center;
-  transition: background-color 300ms, filter 300ms;
+  transition: background-color 300ms, filter 500ms;
   cursor: pointer;
   box-shadow: var(--base-shadow);
   border: 0;
@@ -285,6 +291,7 @@ a,
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(0.625rem);
+    transition: backdrop-filter 300ms;
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
@@ -333,5 +340,17 @@ a,
       font-family: "Inter", sans-serif;
     }
   }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+  backdrop-filter: blur(0.625rem);
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  backdrop-filter: 0;
 }
 </style>
