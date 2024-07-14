@@ -170,7 +170,6 @@ a,
       display: grid;
       transition: background-color 300ms;
       background-color: var(--color-background-soft);
-      width: max-content;
       min-width: 12rem;
       height: max-content;
       text-align: center;
@@ -290,9 +289,14 @@ a,
     position: absolute;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(0.625rem);
+    backdrop-filter: blur(0.525rem);
     transition: backdrop-filter 300ms;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(140, 149, 159, 0.2);
+
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba(0, 0, 0, 0.496);
+    }
+
     width: 100%;
     height: 100%;
   }
