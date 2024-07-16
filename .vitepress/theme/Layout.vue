@@ -268,6 +268,10 @@ a,
   font-weight: 800;
   font-size: 1rem;
 
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-background-soft);
+  }
+
   &:hover {
     background-color: var(--color-background-mute);
   }
@@ -342,14 +346,18 @@ a,
       color: var(--color-text);
       font-size: 1rem;
       font-family: "Inter", sans-serif;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-background-soft);
+      }
     }
   }
 }
 
 .v-enter-active,
 .v-leave-active {
-  transition: opacity 0.5s ease;
   backdrop-filter: blur(0.625rem);
+  transition: opacity 0.5s ease;
 }
 
 .v-enter-from,
