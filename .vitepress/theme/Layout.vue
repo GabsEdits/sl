@@ -126,8 +126,8 @@ const { frontmatter, theme, site } = useData();
     <Transition>
         <template v-if="showPopup">
             <div id="popup">
-                <div id="overlay">
-                    <div id="content">
+                <div id="overlay" @click="togglePasswordPopup">
+                    <div id="content" @click.stop>
                         <a @click="togglePasswordPopup">×</a>
                         <h2>Password</h2>
                         <p>
