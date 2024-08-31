@@ -128,7 +128,7 @@ const { frontmatter, theme, site } = useData();
             <div id="popup">
                 <div id="overlay" @click="togglePasswordPopup">
                     <div id="content" @click.stop>
-                        <a @click="togglePasswordPopup">×</a>
+                        <a id="close" @click="togglePasswordPopup">×</a>
                         <h2>Password</h2>
                         <p>
                             Please enter the password to verify your
@@ -339,7 +339,7 @@ a,
             font-size: 1rem;
         }
 
-        a {
+        #close {
             position: absolute;
             top: 0rem;
             right: 1rem;
@@ -347,6 +347,10 @@ a,
             padding: 0.625rem;
             color: var(--color-text);
             font-size: 1.5rem;
+
+            &:hover {
+                opacity: 0.8;
+            }
         }
 
         input[type="password"] {
