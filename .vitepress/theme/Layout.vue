@@ -161,6 +161,9 @@ a,
     animation: fadeInAnimation ease 1.5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     box-shadow: var(--base-shadow);
     border-radius: 1.3rem;
     background-color: var(--color-background-section);
@@ -169,7 +172,6 @@ a,
     height: max-content;
 
     h1 {
-        margin-bottom: 1.5rem;
         font-weight: 900;
         font-size: 1.75rem;
     }
@@ -245,7 +247,6 @@ a,
 
     #copyright {
         position: relative;
-        margin-top: 5%;
         color: var(--color-text-dim);
         font-weight: 500;
         text-align: right;
