@@ -129,17 +129,19 @@ const { frontmatter, theme, site } = useData();
                 <div id="overlay" @click="togglePasswordPopup">
                     <div id="content" @click.stop>
                         <a id="close" @click="togglePasswordPopup">×</a>
-                        <h2>Password</h2>
-                        <p>
-                            Please enter the password to verify your
-                            authorization to access these links.
-                        </p>
-                        <input
-                            v-model="password"
-                            type="password"
-                            placeholder="Enter password"
-                            @keyup.enter="checkPassword"
-                        />
+                        <div id="main-content">
+                            <h2>Password</h2>
+                            <p>
+                                Please enter the password to verify your
+                                authorization to access these links.
+                            </p>
+                            <input
+                                v-model="password"
+                                type="password"
+                                placeholder="Enter password"
+                                @keyup.enter="checkPassword"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -323,25 +325,50 @@ a,
         box-shadow: var(--base-shadow);
         border-radius: 0.625rem;
         background-color: var(--color-background);
-        padding: 1.8rem;
+        padding: 2.3rem 1.8rem;
         width: 30%;
         height: max-content;
 
-        h2 {
-            margin-bottom: 0.2rem;
-            font-weight: 900;
-            font-size: 1.7rem;
-        }
+        #main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            gap: 0.7rem;
+            width: 100%;
+            height: max-content;
 
-        p {
-            margin-bottom: 1.25rem;
-            font-weight: 500;
-            font-size: 1rem;
+            h2 {
+                font-weight: 900;
+                font-size: 1.7rem;
+                line-height: 1.7rem;
+            }
+
+            p {
+                font-weight: 500;
+                font-size: 1rem;
+            }
+
+            input[type="password"] {
+                transition: color 300ms;
+                border: 0;
+                border-radius: 0.625rem;
+                background-color: var(--color-background-mute);
+                padding: 1rem;
+                width: 100%;
+                color: var(--color-text);
+                font-size: 1rem;
+                font-family: "Inter", sans-serif;
+
+                @media (prefers-color-scheme: dark) {
+                    background-color: var(--color-background-soft);
+                }
+            }
         }
 
         #close {
             position: absolute;
-            top: 0rem;
+            top: 0.2rem;
             right: 1rem;
             cursor: pointer;
             padding: 0.625rem;
@@ -350,22 +377,6 @@ a,
 
             &:hover {
                 opacity: 0.8;
-            }
-        }
-
-        input[type="password"] {
-            transition: color 300ms;
-            border: 0;
-            border-radius: 0.625rem;
-            background-color: var(--color-background-mute);
-            padding: 1rem;
-            width: 100%;
-            color: var(--color-text);
-            font-size: 1rem;
-            font-family: "Inter", sans-serif;
-
-            @media (prefers-color-scheme: dark) {
-                background-color: var(--color-background-soft);
             }
         }
     }
