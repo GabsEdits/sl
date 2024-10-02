@@ -186,6 +186,7 @@ a,
             transition: background-color 300ms;
             background-color: var(--color-background-soft);
             min-width: 12rem;
+            max-width: 12rem;
             height: max-content;
             text-align: center;
 
@@ -225,6 +226,7 @@ a,
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                max-width: 100%;
                 padding: 1.25rem;
 
                 h3 {
@@ -312,13 +314,12 @@ a,
         backdrop-filter: blur(0.525rem);
         transition: backdrop-filter 300ms;
         background-color: rgba(140, 149, 159, 0.2);
+        width: 100%;
+        height: 100%;
 
         @media (prefers-color-scheme: dark) {
             background-color: rgba(0, 0, 0, 0.496);
         }
-
-        width: 100%;
-        height: 100%;
     }
 
     #content {
