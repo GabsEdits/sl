@@ -1,5 +1,9 @@
 ---
 cards:
+  - subject: MUSIC
+    details: Folclorul muzical
+    date: 10/10/2024
+    color: "rgba(86, 39, 245, 0.47)"
   - subject: BIOLOGY
     details: "Angio/Gymnosperm"
     date: 03/09/2024
@@ -12,8 +16,4 @@ cards:
     details: Poluarea Apei
     date: 15/04/2024
     color: "rgba(91, 153, 255, 0.54)"
-  - subject: INFO
-    details: Cetatea Tighina
-    date: 27/03/2024
-    color: "rgba(86, 39, 245, 0.47)"
 ---
