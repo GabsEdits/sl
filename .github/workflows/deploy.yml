@@ -21,14 +21,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v3
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
         with:
-         version: latest
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
+          deno-version: v2.x
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Load environment variables
@@ -39,9 +35,9 @@ jobs:
             echo "VITE_LINK3=${{ secrets.VITE_LINK3 }}" >> $GITHUB_ENV
             echo "VITE_LINK4=${{ secrets.VITE_LINK4 }}" >> $GITHUB_ENV
       - name: Install dependencies
-        run: pnpm install
+        run: deno install --allow-scripts
       - name: Build with VitePress
-        run: pnpm run build
+        run: deno task build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
