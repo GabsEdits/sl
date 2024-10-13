@@ -41,6 +41,14 @@
   --color-text: var(--vt-c-text-light-1);
   --color-text-dim: var(--vt-c-divider-dark-1);
 
+  font-feature-settings: "liga" 1, "calt" 1;
+
+  font-family: Inter, sans-serif;
+
+  @supports (font-variation-settings: normal) {
+    font-family: InterVariable, sans-serif;
+  }
+
   @media (prefers-color-scheme: dark) {
     --color-background: var(--vt-c-black);
     --color-background-soft: var(--vt-c-black-soft);
@@ -52,13 +60,6 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
-  }
-  font-feature-settings: "liga" 1, "calt" 1;
-
-  font-family: Inter, sans-serif;
-
-  @supports (font-variation-settings: normal) {
-    font-family: InterVariable, sans-serif;
   }
 }
 

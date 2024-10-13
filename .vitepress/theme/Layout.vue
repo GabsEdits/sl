@@ -182,12 +182,17 @@ a,
         grid-template-columns: repeat(4, 1fr);
 
         .card {
-            display: grid;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-bottom: 1.25rem;
             transition: background-color 300ms;
             background-color: var(--color-background-soft);
             min-width: 12rem;
             max-width: 12rem;
-            height: max-content;
+            min-height: max-content;
+            height: 100%;
             text-align: center;
 
             &:hover {
@@ -228,6 +233,7 @@ a,
                 align-items: center;
                 max-width: 100%;
                 padding: 1.25rem;
+                height: 5rem;
 
                 h3 {
                     color: var(--color-text);
@@ -241,7 +247,7 @@ a,
                 flex-direction: column;
                 justify-content: center;
                 background-color: transparent;
-                padding: 2.5rem 1.25rem 1rem 1.25rem;
+                padding: 0 1.25rem;
                 text-align: center;
             }
         }
