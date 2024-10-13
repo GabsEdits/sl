@@ -7,6 +7,7 @@
   "nodeModulesDir": "auto",
   "imports": {
     "@vueuse/core": "npm:@vueuse/core@^11.1.0",
+    "sass": "npm:sass@^1.79.5",
     "vitepress": "npm:vitepress@^1.4.1",
     "vue": "npm:vue@^3.5.12"
   }
