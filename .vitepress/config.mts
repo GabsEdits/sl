@@ -20,4 +20,13 @@ export default defineConfig({
       link: "https://www.gxbs.me/",
     },
   },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          silenceDeprecations: ["legacy-js-api"],
+        }
+      }
+    }
+  }
 });
