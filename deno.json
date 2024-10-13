@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "dev": "deno run -RESRWN --allow-run --allow-ffi npm:vitepress dev",
+    "build": "deno run -RESRWN --allow-run --allow-ffi npm:vitepress build",
+    "preview": "deno run -RESRWN --allow-run --allow-ffi npm:vitepress preview"
+  },
+  "nodeModulesDir": "auto",
+  "imports": {
+    "@vueuse/core": "npm:@vueuse/core@^11.1.0",
+    "vitepress": "npm:vitepress@^1.4.1",
+    "vue": "npm:vue@^3.5.12"
+  }
+}
