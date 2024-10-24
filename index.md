@@ -1,8 +1,8 @@
 ---
 cards:
   - subject: MUSIC
-    details: Folclorul muzical
-    date: 10/10/2024
+    details: Lautari
+    date: 24/10/2024
     color: "rgba(86, 39, 245, 0.47)"
   - subject: BIOLOGY
     details: "Angio/Gymnosperm"
