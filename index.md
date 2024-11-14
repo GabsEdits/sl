@@ -1,5 +1,9 @@
 ---
 cards:
+  - subject: TURKISH
+    details: Program
+    date: 15/11/2024
+    color: "rgba(255, 0, 0, 0.42)"
   - subject: MUSIC
     details: Lautari
     date: 24/10/2024
@@ -12,8 +16,4 @@ cards:
     details: Adio Buiucani
     date: 31/05/2024
     color: "rgba(255, 0, 0, 0.42)"
-  - subject: CHIMIE
-    details: Poluarea Apei
-    date: 15/04/2024
-    color: "rgba(91, 153, 255, 0.54)"
 ---
