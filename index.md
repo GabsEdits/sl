@@ -1,5 +1,9 @@
 ---
 cards:
+  - subject: MUSIC
+    details: Botgros
+    date: 21/11/2024
+    color: "rgba(86, 39, 245, 0.47)"
   - subject: TURKISH
     details: Program
     date: 15/11/2024
@@ -12,8 +16,4 @@ cards:
     details: "Angio/Gymnosperm"
     date: 03/09/2024
     color: "rgba(255, 255, 0, 0.42)"
-  - subject: GENERAL
-    details: Adio Buiucani
-    date: 31/05/2024
-    color: "rgba(255, 0, 0, 0.42)"
 ---
