@@ -21,7 +21,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/vitepress-site
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/sl
           docker build -t $IMAGE_NAME:latest .
           docker push $IMAGE_NAME:latest
 
