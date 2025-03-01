@@ -10,5 +10,8 @@
     "sass": "npm:sass@^1.79.5",
     "vitepress": "npm:vitepress@^1.4.1",
     "vue": "npm:vue@^3.5.12"
+  },
+  "allow-scripts": {
+    "npm:vue-demi@0.14.10": true
   }
 }
