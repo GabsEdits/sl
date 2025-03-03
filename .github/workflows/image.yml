@@ -10,6 +10,11 @@ on:
 
 env:
   BUILDX_NO_DEFAULT_ATTESTATIONS: 1
+  VITE_PASSWORD_KEY: ${{ secrets.VITE_PASSWORD_KEY }}
+  VITE_LINK1: ${{ secrets.VITE_LINK1 }}
+  VITE_LINK2: ${{ secrets.VITE_LINK2 }}
+  VITE_LINK3: ${{ secrets.VITE_LINK3 }}
+  VITE_LINK4: ${{ secrets.VITE_LINK4 }}
 
 jobs:
   build:
@@ -22,6 +27,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Load environment variables
+      run: |
+        echo "VITE_PASSWORD_KEY=${{ secrets.VITE_PASSWORD_KEY }}" >> $GITHUB_ENV
+        echo "VITE_LINK1=${{ secrets.VITE_LINK1 }}" >> $GITHUB_ENV
+        echo "VITE_LINK2=${{ secrets.VITE_LINK2 }}" >> $GITHUB_ENV
+        echo "VITE_LINK3=${{ secrets.VITE_LINK3 }}" >> $GITHUB_ENV
+        echo "VITE_LINK4=${{ secrets.VITE_LINK4 }}" >> $GITHUB_ENV
 
     - uses: vanilla-os/vib-gh-action@v0.8.1
 
