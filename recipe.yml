@@ -1,0 +1,28 @@
+name: SL Image
+id: sl
+stages:
+  - id: build
+    base: denoland/deno:latest
+    singlelayer: false
+    labels:
+      maintainer: Gabriel Cozma
+    entrypoint:
+      exec:
+        - /bin/sh
+        - '-c'
+        - cd /app && deno task preview
+    expose:
+      "4173": ""
+    modules:
+      - name: build-app
+        type: shell
+        source:
+          type: git
+          url: https://github.com/GabsEdits/sl
+          branch: main
+          commit: latest
+        commands:
+          - mv /sources/build-app /app
+          - cd /app
+          - deno install
+          - deno task build
